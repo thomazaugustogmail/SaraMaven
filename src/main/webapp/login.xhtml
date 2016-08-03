@@ -40,31 +40,30 @@ h2 {
 		</h2>
 	</center>
 		<h:form>
-		<!-- <center>
+		<center>
 			<p:growl id="msg" showDetail="true" sticky="true" />
 			<p:tabView>
 				<p:tab title="Login">
 					<h:panelGrid columns="1">
 						<h:outputLabel value="Usuário:" />
-						<p:inputMask mask="999.999.999-99" value=""
+						<p:inputMask mask="999.999.999-99" value="#{loginBean.cpf}"
 							required="true" requiredMessage="Campo usuário não informado"
 							converterMessage="Informe o usuário" />
 
 						<h:outputLabel value="Senha:" />
-						<p:password value="" required="true"
+						<p:password value="#{loginBean.password}" required="true"
 							requiredMessage="Campo senha não informado"
 							converterMessage="Informar a sennha" />
 					</h:panelGrid>
 				</p:tab>
 			</p:tabView>
 			<p align="center">
-				<p:commandButton value="Entrar" update="msg" />
+				<p:commandButton value="Entrar" update="msg" action="#{loginBean.doLogin()}"/>
 			</p>
-			<a href="cadastro_prof.jsf"><font color="yellow">Cadastro
-					do Professor</font></a> <br /> <a href="TelaRecuperarSenha.jsf"><font
-				color="yellow">Esqueci minha Senha</font></a> <br /> <a href=""><font
-				color="yellow">Ajuda</font></a>
-		</center> -->
+			<a href="cadastro_prof.xhtml"><font color="yellow">Cadastro do Professor</font></a> <br /> 
+			<a href="TelaRecuperarSenha.xhtml"><font color="yellow">Esqueci minha Senha</font></a><br />
+			<a href=""><font color="yellow">Ajuda</font></a>
+		</center>
 	</h:form>
 </h:body>
 </html>

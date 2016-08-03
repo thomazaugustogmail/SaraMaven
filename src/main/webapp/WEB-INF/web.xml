@@ -20,6 +20,27 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.jsf</url-pattern>
+		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+		<context-param>
+		<description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>client</param-value>
+	</context-param>
+	<!-- Login filter -->
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>br.unit.filter.LoginFilter</filter-class>
+	</filter>
+	<!-- Set the login filter to secure all the pages in the /pages/* path of 
+		the application Filtra todas as requisições de paginas http que estejão dentro 
+		da pasta /pages/* -->
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/pages/*</url-pattern>
+	</filter-mapping>
+	<!-- Tempo de duração da sessão do usuário -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
 </web-app>
