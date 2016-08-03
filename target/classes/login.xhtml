@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Login</title>
@@ -38,41 +39,33 @@ h2 {
 			<h:outputLabel value="Faça seu Login" />
 		</h2>
 	</center>
-	<center>
 		<h:form>
-			<h:panelGrid columns="2">
-				<h:outputLabel value="Nome" />
-				<h:inputText />
-				<h:outputLabel value="Senha" />
-				<h:inputText />
-				<h:commandButton value="Enviar" />
-			</h:panelGrid>
-			<!-- <p:growl id="msg" showDetail="true" sticky="true" />
+		<center>
+			<p:growl id="msg" showDetail="true" sticky="true" />
 			<p:tabView>
 				<p:tab title="Login">
 					<h:panelGrid columns="1">
 						<h:outputLabel value="Usuário:" />
-						<p:inputMask mask="999.999.999-99" value="#{loginBean.cpf}" required="true"
-							requiredMessage="Campo usuário não informado"
+						<p:inputMask mask="999.999.999-99" value=""
+							required="true" requiredMessage="Campo usuário não informado"
 							converterMessage="Informe o usuário" />
 
 						<h:outputLabel value="Senha:" />
-						<p:password value="#{loginBean.password}" required="true"
+						<p:password value="" required="true"
 							requiredMessage="Campo senha não informado"
 							converterMessage="Informar a sennha" />
 					</h:panelGrid>
 				</p:tab>
 			</p:tabView>
 			<p align="center">
-				<p:commandButton value="Entrar" update="msg" action="#{loginBean.doLogin()}"/>
+				<p:commandButton value="Entrar" update="msg"
+					 />
 			</p>
-			<a href="cadastro_prof.jsf"><font color="yellow">Cadastro do Professor</font></a>
-			<br />
-			<a href="TelaRecuperarSenha.jsf"><font color="yellow">Esqueci minha Senha</font></a>
-			<br />
-			<a href=""><font color="yellow">Ajuda</font></a>
- -->
-		</h:form>
-	</center>
+			<a href="cadastro_prof.jsf"><font color="yellow">Cadastro
+					do Professor</font></a> <br /> <a href="TelaRecuperarSenha.jsf"><font
+				color="yellow">Esqueci minha Senha</font></a> <br /> <a href=""><font
+				color="yellow">Ajuda</font></a>
+		</center>
+	</h:form>
 </h:body>
 </html>
