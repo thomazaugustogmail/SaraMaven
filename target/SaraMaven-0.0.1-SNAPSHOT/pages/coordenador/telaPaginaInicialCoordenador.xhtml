@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Pagina Inicial do Coordenador</title>
+	<style>
+body {
+	background-color: #000080;
+}
+
+h1 {
+	font-family: verdana;
+	color: white;
+	font-size: 15pt;
+}
+
+h2 {
+	font-family: verdana;
+	color: white;
+	font-size: 12pt;
+}
+
+h3 {
+	font-family: verdana;
+	color: white;
+	font-size: 12pt;
+}
+</style>
+</h:head>
+
+<h:body>
+	<p align="right">
+		<img src="/NSara/images/unit.png" />
+	</p>
+	<center>
+		<h1>Bem Vindo #{loginBean.username}</h1>
+
+		<h2>Pagina Inicial do Coordenador</h2>
+
+		<h3>Abaixo escolha uma de suas opções:</h3>
+
+	</center>
+	<center>
+		<h:form>
+			<p:growl id="msg" showDetail="true" sticky="true" />
+			<h:panelGrid columns="3">
+				<p:button disabled="false" value="Cadastrar Avaliador" href="#" />
+				<p:button disabled="true" value="Listar Avaliadores" href="#" />
+				<p:button disabled="true" value="Avaliar Projeto" href="#" />
+				<p:button disabled="true" value="Verificar Relatorio" />
+				<p:button disabled="true" value="Avaliar Tipo de Projeto" />
+				<p:button disabled="true" value="Cadastrar Calendario da Iniciação Cientifica" />
+				<p:button disabled="true" value="Buscar Documentos" />
+				<p:button disabled="true" value="Liberar Projeto Para Avaliador" href="#" />
+				<p:button disabled="true" value="Liberar Avaliador Inscrito" href="#" />
+				<p:button disabled="true" value="Liberar Declarações" />
+				<p:button disabled="true" value="Liberar Certificados" />
+				<p:button disabled="true" value="Liberar o Curriculum para o Comitê Barema" />
+				<p:commandButton value="Sair" action="#{loginBean.doLogout()}"
+					update="msg" />
+			</h:panelGrid>
+		</h:form>
+	</center>
+</h:body>
+</html>

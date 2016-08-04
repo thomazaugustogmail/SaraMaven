@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Submeter o Relatório</title>
+	<style>
+		body{
+			background-color: #000080;
+		}
+		
+		h1{
+			font-family: verdana;
+			color: white;
+			font-size: 15pt;
+		}
+		
+		h2{
+			font-family: verdana;
+			color: white;
+			font-size: 12pt;
+		}
+	</style>
+</h:head>
+<h:body>
+	  <p align="right"><img src="/Sara/images/unit.png"/></p>
+ 
+	<center><h1><h:outputLabel value="Bem vindo" /></h1></center>
+		<center><h2><h:outputLabel value="Sistema para Submissão de Relatorio" /></h2></center>
+	<p:tabView>
+		<p:tab title="Dados do Aluno">
+			<h:panelGrid columns="1">
+				
+				<h:outputLabel value="Nome:" />
+				
+				<p:inputText maxlength="50" size="30" />
+				
+				<h:outputLabel value="Matrícula:" />
+				
+				<p:inputText maxlength="50" size="30" />
+				
+				<h:outputLabel value="Curso:" />
+				
+                                <p:inputText maxlength="50" size="30"/>
+				
+			</h:panelGrid>
+			
+			</p:tab>			
+		
+            	<p:tab title="Dados Referentes ao Projeto">
+			<h:panelGrid columns="1">
+				
+				<h:outputLabel value="Título:" />
+				
+				<p:inputText maxlength="50" size="30" />
+				
+				<h:outputLabel value="Descrição das atividades:" />
+				
+				<p:inputTextarea cols="60" rows="10" />
+                                
+			</h:panelGrid>
+			
+			</p:tab>
+            
+            <p:tab title="Situação do projeto">
+			<h:panelGrid columns="1">
+ 
+                                <p:selectBooleanCheckbox itemLabel="1-Conforme o cronograma" />
+                                <p:selectBooleanCheckbox itemLabel="2-Atrasado" />
+                                <p:selectBooleanCheckbox itemLabel="3-Adiantado" />
+                                <p:selectBooleanCheckbox itemLabel="4-Paralisado" />
+                                <p:selectBooleanCheckbox itemLabel="5-Cancelado" />
+                                
+				<h:outputLabel value="Nos casos de 2 a 5, justificar:" />
+				
+				<p:inputTextarea cols="60" rows="10" />
+			</h:panelGrid>
+			
+			</p:tab>
+            <p:tab title="Avaliação do Orientador sobre o aluno">
+			<h:panelGrid columns="1">
+                            <h:outputLabel value="Pontuar de 1 a 4, conforme o desempenho:"/>
+                            
+                                <p:selectBooleanCheckbox itemLabel="1-Ruim" />
+                                <p:selectBooleanCheckbox itemLabel="2-Regular" />
+                                <p:selectBooleanCheckbox itemLabel="3-Bom" />
+                                <p:selectBooleanCheckbox itemLabel="4-Excelente" />
+                                
+                                <h:outputLabel value="Nos casos de 1 a 2, justifique:Características do aluno(Marcar quantas opções desejar)"/>
+                                <p:selectBooleanCheckbox itemLabel="1-Interesse" />
+                                <p:selectBooleanCheckbox itemLabel="2-Compromisso" />
+                                <p:selectBooleanCheckbox itemLabel="3-Assiduidade" />
+                                <p:selectBooleanCheckbox itemLabel="4-Iniciativa" />
+                                <p:selectBooleanCheckbox itemLabel="5-Habilidade" />
+                                
+				
+			</h:panelGrid>
+			
+			</p:tab>
+	</p:tabView>		
+		<p align="right">
+		<p:commandButton value="Enviar" />
+		<p:button value="Cancelar" href="/pages/TelaPaginaInicialProfessor.jsf" /></p>
+</h:body>
+</html>

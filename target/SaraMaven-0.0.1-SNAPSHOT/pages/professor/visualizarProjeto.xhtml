@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+   <h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Pagina Inicial do Professor</title>
+	<script type="text/javascript">
+		function start() {
+		    PF('statusDialog').show();
+		}
+		 
+		function stop() {
+		    PF('statusDialog').hide();
+		}
+		</script>
+		<style>
+		body{
+			background-color: #000080;
+		}		
+		h1{
+			font-family: verdana;
+			color: white;
+			font-size: 15pt;
+		}
+		
+		h2{
+			font-family: verdana;
+			color: white;
+			font-size: 12pt;
+		}
+                
+                h3{
+			font-family: verdana;
+			color: white;
+			font-size: 12pt;
+		}
+	</style>
+</h:head>
+ 	
+    <h:body>
+        <p align="right"><img src="/Sara/images/unit.png"/></p>
+        <center><h2>Listagem dos Projetos</h2></center>
+        <div>
+			<p:dataTable var="proj" value="#{projetoController.buscarPorId(id)}">
+				<p:tab id="confirm" title="Confirmação">				
+				<p:panel header="Confirmação">
+					<h:panelGrid id="confirmacao" columns="3"
+						columnClasses="grid,grid,grid">
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Título"/>
+							<h:outputText maxlength="50" size="30" value="#{projetoController.pr.titulo}" required="true" label="Titulo" styleClass="outputLabel"/>
+							
+							<h:outputText value="Área:" />
+							<h:outputText maxlength="50" size="30" value="#{projetoController.pr.cod_area}" styleClass="outputLabel"/>
+							
+							<h:outputText value="Subarea do Conhecimento:" />						
+							<h:outputText value="#{projetoController.pr.cod_area}" required="true" styleClass="outputLabel"/>
+							 
+							<h:outputText value="Especialidade:" />						
+							<h:outputText maxlength="50" size="30" value="#{projetoController.pr.modalidade}" styleClass="outputLabel"/>
+							
+							<h:outputText value="Palavras-Chave:" />				
+							<h:outputText maxlength="50" size="30" value="#{projetoController.pr.palavras_chave}" styleClass="outputLabel"/>				
+						
+							<h:outputText value="Resumo do projeto:" />				
+							<h:outputText cols="60" rows="10" value="#{projetoController.pr.resumo_projeto}" styleClass="outputLabel"/>
+							
+							<h:outputText  value="Calendário de Iniciação Científica/Projeto:"  />
+							<h:outputText />								
+							
+							<h:outputText value="Período Inicial" />							
+							<h:outputText value="#{projetoController.pr.per_ini}" styleClass="outputLabel"/>
+							
+							<h:outputText value="Período Final" styleClass="outputLabel"/>
+							<h:outputText value="#{projetoController.pr.per_fim}" locale="de" navigator="true"  pattern="dd/MM/yyyy" mask="true" styleClass="outputLabel"/>
+							
+							<h:outputText value="Tarefa" />
+							<h:outputText cols="60" rows="10" value="#{projetoController.tarefa}" styleClass="outputLabel"/>
+							
+							<h:outputText />
+							<h:outputText />
+						</h:panelGrid>
+					</h:panelGrid>
+				</p:panel>
+			</p:tab>			    		   
+			</p:dataTable>
+		</div>
+	<p align="right">
+		<p:button href="/pages/TelaPaginaInicialProfessor.jsf" value="Voltar" />	
+	</p>
+    </h:body>
+</html>

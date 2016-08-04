@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Cadastro do Avaliador</title>
+	<style>
+		body{
+			background-color: #000080;
+		}
+		
+		h1{
+			font-family: verdana;
+			color: white;
+			font-size: 15pt;
+		}
+		
+		h2{
+			font-family: verdana;
+			color: white;
+			font-size: 12pt;
+		}
+	</style>
+</h:head>
+<h:body>
+	<p align="right"><img src="/Sara/images/unit.png"/></p>
+	<center><h1><h:outputLabel value="Bem vindo" /></h1></center>
+	<center><h2><h:outputLabel value="Sistema de Cadastro do Avaliador" /></h2></center>
+	<h:form >
+		<p:tabView>
+			<p:tab title="Cadastrar Avaliador">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Nome:" />
+					
+					<p:inputText maxlength="50" size="30" value="#{avaliadorController.aval.nome}"/>
+					
+					<h:outputLabel value="CPF:" />
+					
+					<p:inputMask mask="999.999.999-99" maxlength="50" size="30" value="#{avaliadorController.aval.CPF}"/>
+					
+					<h:outputLabel value="Conta Bancária:" />
+					
+					<p:inputText maxlength="50" size="30" value="#{avaliadorController.aval.contaBancaria}" />
+					
+					<h:outputLabel value="Área de atuação:" />
+					
+					<p:inputText maxlength="50" size="30" value="#{avaliadorController.aval.area}"/>
+					
+					<h:outputLabel value="Senha" />
+					
+					<p:password maxlength="15" size="15" value="#{avaliadorController.aval.senha}"/>
+					
+					<p:commandButton value="Cadastrar" action="#{avaliadorController.cadastrar(avaliadorController.aval)}"/>
+					<p:button  value="Cancelar" href="/pages/TelaPaginaInicialCoordenador.jsf" />
+				
+				</h:panelGrid>
+			</p:tab>
+		</p:tabView>
+	</h:form>	
+</h:body>
+</html>

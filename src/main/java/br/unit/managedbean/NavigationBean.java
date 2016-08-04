@@ -80,7 +80,7 @@ public class NavigationBean implements Serializable {
 	 * @return Welcome page name.
 	 */
 	public String toWelcome() {
-		return "/pages/welcome.xhtml";
+		return "/welcome.xhtml";
 	}
 
 	/**
@@ -94,11 +94,14 @@ public class NavigationBean implements Serializable {
 	}
 
 	public String redirectToTelaPaginaInicialProfessor() {
-		return "/telaPaginaInicialProfessor.xhtml?faces-redirect=true";
+		return "/pages/professor/telaPaginaInicialProfessor.xhtml?faces-redirect=true";
+	}
+	public String redirectToTelaSubmissaoProjeto() {
+		return "/pages/professor/TelaSubmissaoProjeto.xhtml?faces-redirect=true";
 	}
 
 	public String redirectToTelaPaginaInicialAluno() {
-		return "/telaPaginaInicialAluno.xhtml?faces-redirect=true";
+		return "/pages/aluno/telaPaginaInicialAluno.xhtml?faces-redirect=true";
 	}
 
 	/**

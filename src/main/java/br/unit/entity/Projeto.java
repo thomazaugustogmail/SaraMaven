@@ -40,6 +40,11 @@ public class Projeto implements Serializable {
 	private String cpf;
 	@Column
 	private int cod_area;
+	@Column
+	private String resumoProjeto;
+	@Column
+	private String palavrasChave;	
+	
 	public long getId() {
 		return id;
 	}
@@ -112,4 +117,17 @@ public class Projeto implements Serializable {
 	public void setCod_area(int cod_area) {
 		this.cod_area = cod_area;
 	}
+	public String getResumoProjeto() {
+		return resumoProjeto;
+	}
+	public void setResumoProjeto(String resumoProjeto) {
+		this.resumoProjeto = resumoProjeto;
+	}
+	public String getPalavrasChave() {
+		return palavrasChave;
+	}
+	public void setPalavrasChave(String palavrasChave) {
+		this.palavrasChave = palavrasChave;
+	}	
+	
 }

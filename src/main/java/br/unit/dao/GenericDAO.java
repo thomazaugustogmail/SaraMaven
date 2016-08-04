@@ -3,6 +3,7 @@ package br.unit.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import br.unit.connectionfactory.ConnectionFactory;
 import br.unit.repository.GenericRepository;
@@ -54,7 +55,18 @@ public abstract class GenericDAO<T> implements GenericRepository<T> {
 
 	@Override
 	public List<T> listAll() {
-		// TODO Auto-generated method stub
+		em = ConnectionFactory.geEntityManager();
+		
+		try {
+			em.getTransaction().begin();
+			Query resul = em.createNamedQuery("select p from Projeto p");	
+			List<T> lista = resul.getResultList();
+			em.getTransaction().commit();
+			return lista;
+			
+		} catch (Exception e) {
+			e.getMessage();
+		}
 		return null;
 	}
 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro do Professor</title>
+	<style>
+body {
+	background-color: #000080;
+}
+
+h1 {
+	font-family: verdana;
+	color: white;
+	font-size: 15pt;
+}
+
+h2 {
+	font-family: verdana;
+	color: white;
+	font-size: 12pt;
+}
+</style>
+</h:head>
+<h:body>
+	<p align="right"><img src="/NSara/images/unit.png"/></p>
+	<center>
+		<h1>
+			<h:outputLabel value="Bem vindo" />
+		</h1>
+	</center>
+	<center>
+		<h2>
+			<h:outputLabel value="Sistema de Cadastro do Professor" />
+		</h2>
+	</center>
+	<h:form>
+		<p:growl id="msg" showDetail="true" sticky="true" />
+		<p:tabView>
+			<p:tab title="Dados Pessoais">
+				<h:panelGrid columns="1">
+
+					<h:outputLabel value="Nome:" />
+					<p:inputText required="true" requiredMessage="Campo NOME obrigatório"
+						value="#{ProfessorBean.dP.nome}" />
+
+					<h:outputLabel value="CPF:" />
+					<p:inputMask mask="999.999.999-99" required="true" requiredMessage="Campo CPF é obrigatorio."
+						value="#{ProfessorBean.dP.cpf}" />
+
+					<h:outputLabel value="Senha:" />
+					<p:inputText type="password" required="true" requiredMessage="Campo SENHA é obrigatorio."
+						 value="#{ProfessorBean.dP.senha}" />
+
+					<h:outputLabel value="Matrícula:" />
+					<p:inputText value="#{ProfessorBean.dP.matricula}"/>
+
+					<h:outputLabel value="Email:" />
+					<p:inputText maxlength="50" size="30" required="true" requiredMessage="Campo EMAIL é obrigatório"
+						value="#{ProfessorBean.dP.email}" />
+				</h:panelGrid>
+			</p:tab>
+		</p:tabView>
+		<p align="right">
+			<p:commandButton value="Cadastrar"	action="#{ProfessorBean.cadastrar(ProfessorBean.dP)}" update="msg" />		
+			<p:commandButton value="Cancelar" action="#{navigationBean.toLogin()}" />
+		</p>
+	</h:form>
+</h:body>
+</html>

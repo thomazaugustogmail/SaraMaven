@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro do Aluno</title>
+		<style>
+		body{
+			background-color: #000080;
+		}
+		
+		h1{
+			font-family: verdana;
+			color: white;
+			font-size: 15pt;
+		}
+		
+		h2{
+			font-family: verdana;
+			color: white;
+			font-size: 12pt;
+		}
+	</style>
+</h:head>
+<h:body>
+		<p align="right"><img src="/Sara/images/unit.png"/></p>
+		<center><h1><h:outputLabel value="Bem vindo" /></h1></center>
+		<center><h2><h:outputLabel value="Sistema de Cadastro de Aluno" /></h2></center>
+	<h:form>
+			
+		<p:tabView>
+			<p:tab title="Dados Pessoais">
+				<h:panelGrid columns="1">
+					
+					<h:outputLabel value="Nome:" />
+					
+					<p:inputText maxlength="50" size="30" value="#{alunoController.aluno.nome}" />
+					
+					<h:outputLabel value="CPF:" />
+					
+					<p:inputMask mask="999.999.999-99" value="#{alunoController.aluno.CPF}" />
+					
+					<h:outputLabel value="Identidade:" />
+					
+					<p:inputMask mask="9.999.999-9"  value="#{alunoController.aluno.rg}"/>
+					
+	                  <h:outputLabel value="Orgão Expedidor:" />
+	                  
+	                  <p:inputText maxlength="50" size="30" value="#{alunoController.aluno.orgao_exp}" />
+	                  
+	                  <h:outputLabel value="Data de Nascimento" />
+	                  
+	                  <p:calendar id="german" value="#{alunoController.aluno.ano_ingresso}" locale="de" navigator="true" pattern="dd/MM/yyyy" mask="true" />
+	                  
+	                  <h:outputLabel value="E-mail:" />
+	                  
+                      <p:inputText maxlength="50" size="30" value="#{alunoController.aluno.email}" />
+				</h:panelGrid>
+			</p:tab>
+			<p:tab title="Dados de Localidade">
+				<h:panelGrid columns="1">
+					<h:outputLabel value="Endereço:" />
+					
+					<p:inputText maxlength="50" size="30" value="#{alunoController.aluno.endereco}" />
+					
+					<h:outputLabel value="Bairro:" />
+					
+					<p:inputText maxlength="50" size="30" value="#{alunoController.aluno.bairro}"/>
+					
+					<h:outputLabel value="Cidade:" />
+					
+					<p:inputText maxlength="50" size="30" value="#{alunoController.aluno.cidade}" />
+					
+					<h:outputLabel value="UF:" />
+					
+					<p:inputText maxlength="5" size="3" value="#{alunoController.aluno.uf}"/>
+					
+					<h:outputLabel value="CEP:" />
+					
+					<p:inputText maxlength="50" size="30" value="#{alunoController.aluno.cep}"/>
+				</h:panelGrid>
+			</p:tab>
+			
+			<p:tab title="Dados Sobre o Projeto">
+				<h:panelGrid columns="1">
+					<h:outputLabel value="Título:" />
+					
+					<p:inputText maxlength="50" size="30"  />
+					
+					<h:outputLabel value="Área do Conhecimento(Tabela do CNPq):" />
+					
+					<p:inputText maxlength="50" size="30" />
+					
+					<h:outputLabel value="SubÁrea do Conhecimento:" />
+					
+					<p:inputText maxlength="50" size="30" />
+					
+					<h:outputLabel value="Especialidade:" />
+					
+					<p:inputText maxlength="50" size="30" />
+                                        
+                    <h:outputLabel value="Projeto Financiado:" />
+					
+					<p:selectBooleanCheckbox value="Sim" itemLabel="Sim"/>
+ 	                    
+ 	                     <p:selectBooleanCheckbox value="Nao" itemLabel="Não"/>
+                    
+                    <h:outputLabel value="Orgão Financiador:" />
+    	                 
+    	                 <p:inputText maxlength="50" size="30" />
+                                        
+					<h:outputLabel value="Inserir o link do seu Curriculo lattes" />
+					
+						<p:inputText maxlength="50" size="30" />
+						
+				</h:panelGrid>
+			</p:tab>
+            <p:tab title="Dados Institucionais">
+				<h:panelGrid columns="1">
+					<h:outputLabel value="Grupo de Pesquisa:" />
+					
+					<p:inputText maxlength="50" size="30" />
+					
+					<h:outputLabel value="Curso:" />
+					
+					<p:inputText maxlength="50" size="30" />
+					
+					<h:outputLabel value="Ano de Ingresso:" />
+					
+					<p:inputText maxlength="50" size="30" />
+					
+					<h:outputLabel value="Semestre Atual:" />
+					
+					<p:inputText maxlength="50" size="30" />
+					
+					<h:outputLabel value="Semestre de Conclusão:" />
+					
+					<p:inputText maxlength="50" size="30" />
+				</h:panelGrid>
+			</p:tab>
+			
+                <p:tab title="Dados do Orientador">
+				<h:panelGrid columns="1">
+					<h:outputLabel value="Nome:" />
+					
+					<p:inputText maxlength="50" size="30" />
+					
+					<h:outputLabel value="Curso Vinculado:" />
+					
+					<p:inputText maxlength="50" size="30" />
+					
+					<h:outputLabel value="Titulaçao:" />
+					
+                       <p:selectBooleanCheckbox value="Dr" itemLabel="Doutor"  />
+                       <p:selectBooleanCheckbox value="Mr" itemLabel="Mestre" />
+						
+				</h:panelGrid>
+                         
+			</p:tab>
+                    <p:tab title="Anexar Documentos">
+                        <p align="center">
+                           <ol>    
+	                        <li>Cópia do comprovante de matrícula semestral na Universidade Tiradentes (Horário do Aluno);</li>
+	                        <li>Cópia do histórico acadêmico;</li>
+	                        <li>Cópia do RG e do CPF;</li>
+	                        <li>Cópia do comprovante de residência;</li>
+	                        <li>Cópia do Currículo Lattes atualizado.</li>
+                           </ol>
+                    </p>
+                        <p:growl id="messages" showSummary="true" showDetail="true"/>
+                        <p:fileUpload fileUploadListener=" " sizeLimit="1073741824" update="messages" multiple="true" label="Escolher Arquivos" />
+                    </p:tab>      
+		</p:tabView>
+		<p align="right"><p:commandButton action="#{alunoController.cadastrar(alunoController.aluno)}" value="Cadastrar" /></p>
+	</h:form>
+</h:body>
+</html>

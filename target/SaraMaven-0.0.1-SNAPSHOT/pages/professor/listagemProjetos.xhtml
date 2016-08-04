@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+   <h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Pagina Inicial do Professor</title>
+	<script type="text/javascript">
+		function start() {
+		    PF('statusDialog').show();
+		}
+		 
+		function stop() {
+		    PF('statusDialog').hide();
+		}
+		</script>
+		<style>
+		body{
+			background-color: #000080;
+		}		
+		h1{
+			font-family: verdana;
+			color: white;
+			font-size: 15pt;
+		}
+		
+		h2{
+			font-family: verdana;
+			color: white;
+			font-size: 12pt;
+		}
+                
+                h3{
+			font-family: verdana;
+			color: white;
+			font-size: 12pt;
+		}
+	</style>
+</h:head>
+ 	
+    <h:body>
+        <p align="right"><img src="/Sara/images/unit.png"/></p>
+        <center><h2>Listagem dos Projetos</h2></center>
+        <div>
+			<p:dataTable var="proj" value="#{projetoController.listaAll()}">
+			    <p:column headerText="Protocolo">
+			        <h:outputText value="#{proj.cod_projeto}" />
+			    </p:column>
+			    <p:column headerText="Titulo">
+			        <h:outputText value="#{proj.titulo}" />
+			    </p:column>		 
+			    
+			    <p:column headerText="Url Projeto">			    	
+			    	<h:form>
+					    <p:commandButton value="Baixar Projeto" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+					        <p:fileDownload value="#{projetoController.FileDownloadView(projetoController.fileDown)}" />
+					    </p:commandButton>
+					</h:form>
+			    </p:column>
+			    <p:column headerText="Status">			      
+			        <h:outputText value="#{proj.aprovado}" />
+			    </p:column>
+			    <p:column headerText="">			      
+			        <p:button value="Visualizar" href="#{projetoController.editar(proj.cod_projeto)}" />
+			        
+			    </p:column>
+			    <p:column headerText="">
+			    <p:button value="Editar" href="#" />
+			    </p:column>
+			    <p:column headerText="">
+			        <p:button value="Remover" href="#" />
+			    </p:column>			   
+			</p:dataTable>
+		</div>
+	<p align="right">
+		<p:button href="/pages/TelaPaginaInicialProfessor.jsf" value="Voltar" />	
+	</p>
+    </h:body>
+</html>
