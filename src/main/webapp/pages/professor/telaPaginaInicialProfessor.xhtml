@@ -37,20 +37,19 @@
 	   <h3>Abaixo escolha uma de suas opções:</h3>
    </center>        
    <h:form>
-        <p:growl id="growl" sticky="true" showDetail="true"/>
+        <p:growl id="msg" sticky="true" showDetail="true"/>
         <center>
         	<h:panelGrid columns="4">
-	            <p:commandButton disabled="false" value="Submeter Projeto" action="#{navigationBean.redirectToTelaSubmissaoProjeto()}" />
-	            <p:button disabled="false" value="Meus Projetos" href="/listagemProjetosProfessor.xhtml" />
-	            <p:button disabled="true" value="Incluir Alunos"  href="/cadastro_aluno.xhtml"/>
-	            <p:button disabled="true" value="Relatórios" href="/TelaSubmeterRelatorio.xhtml" />
-	            <p:button disabled="true" value="Substituir/Cancelar" href="/pages/TelaDeSubstituicao.xhtml" />
-	            <p:button disabled="true" value="Acompanhar Relatório" href="#" />
+	            <p:button disabled="false" value="Submeter Projeto" href="#{navigationBean.redirectToTelaSubmissaoProjeto()}" />
+	            <p:button disabled="false" value="Meus Projetos" href="" />
+	            <p:button disabled="true" value="Incluir Alunos"  href=""/>
+	            <p:button disabled="true" value="Relatórios" href="" />
+	            <p:button disabled="true" value="Substituir/Cancelar" href="" />
+	            <p:button disabled="true" value="Acompanhar Relatório" href="" />
 	            <p:button disabled="true" value="Cadastrar Calendário dos Projetos" href="#" />
 	            <p:button disabled="true" value="Calendário Iniciação Científica" href="#" />
 	            <p:button disabled="true" value="Emitir Certificado" href="#" />
-	            <p:button value="Sair" href="#{loginBean.doLogout()}" />
-	            
+	            <p:button value="Sair" href="#{loginBean.doLogout()}" />	            
             </h:panelGrid>
          </center>
      </h:form>

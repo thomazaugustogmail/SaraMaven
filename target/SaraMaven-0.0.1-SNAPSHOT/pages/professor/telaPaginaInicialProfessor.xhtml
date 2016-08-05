@@ -31,19 +31,20 @@
 	</style>
 </h:head>
 <h:body>     	
-   <p align="right"><img src="/Sara/images/unit.png"/></p>
-   <center><h1>Bem Vindo</h1></center>
-   <center><h2>Pagina Inicial do Professor</h2></center>
-   <center><h3>Abaixo escolha uma de suas opções:</h3></center>        
+   <center><p align="right"><img src="/Sara/images/unit.png"/></p>
+	   <h1>Bem Vindo #{loginBean.usuarioWeb.nome}</h1>
+	   <h2>Pagina Inicial do Professor</h2>
+	   <h3>Abaixo escolha uma de suas opções:</h3>
+   </center>        
    <h:form>
         <p:growl id="growl" sticky="true" showDetail="true"/>
         <center>
         	<h:panelGrid columns="4">
-	            <p:button disabled="false" value="Submeter Projeto" href="" />
-	            <p:button disabled="false" value="Incluir Alunos"  href="/pages/cadastro_aluno.jsf"  />
-	            <p:button disabled="false" value="Meus Projetos" href="/pages/listagemProjetos.jsf" />
-	            <p:button disabled="true" value="Relatórios" href="/pages/TelaSubmeterRelatorio.jsf" />
-	            <p:button disabled="true" value="Substituir/Cancelar" href="/pages/TelaDeSubstituicao.jsf" />
+	            <p:commandButton disabled="false" value="Submeter Projeto" action="#{navigationBean.redirectToTelaSubmissaoProjeto()}" />
+	            <p:button disabled="false" value="Meus Projetos" href="/listagemProjetosProfessor.xhtml" />
+	            <p:button disabled="true" value="Incluir Alunos"  href="/cadastro_aluno.xhtml"/>
+	            <p:button disabled="true" value="Relatórios" href="/TelaSubmeterRelatorio.xhtml" />
+	            <p:button disabled="true" value="Substituir/Cancelar" href="/pages/TelaDeSubstituicao.xhtml" />
 	            <p:button disabled="true" value="Acompanhar Relatório" href="#" />
 	            <p:button disabled="true" value="Cadastrar Calendário dos Projetos" href="#" />
 	            <p:button disabled="true" value="Calendário Iniciação Científica" href="#" />
@@ -55,4 +56,3 @@
      </h:form>
 </h:body>
 </html>
-

@@ -11,7 +11,6 @@ import javax.faces.context.FacesContext;
 import br.unit.dao.DadosPessoaisDAO;
 import br.unit.entity.DadosPessoais;
 
-
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean implements Serializable {
@@ -26,6 +25,10 @@ public class LoginBean implements Serializable {
 
 	@ManagedProperty(value = "#{navigationBean}")
 	private NavigationBean navigationBean;
+
+	public LoginBean() {
+		navigationBean = new NavigationBean();
+	}
 
 	/**
 	 * Login operation.
@@ -43,7 +46,8 @@ public class LoginBean implements Serializable {
 
 		}
 
-		if (dp != null && usuarioWeb.getCpf().equals(cpf) && dp.getSenha().equals(password) && usuarioWeb.getTipo() == 1) {
+		if (dp != null && usuarioWeb.getCpf().equals(cpf) && dp.getSenha().equals(password)
+				&& usuarioWeb.getTipo() == 1) {
 
 			FacesMessage msg = new FacesMessage("Bem vindo ao Sara", usuarioWeb.getNome());
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
@@ -51,7 +55,8 @@ public class LoginBean implements Serializable {
 
 			return navigationBean.redirectToTelaCoordenador();
 
-		} else if (dp != null && usuarioWeb.getCpf().equals(cpf) && dp.getSenha().equals(password) && usuarioWeb.getTipo() == 2) {
+		} else if (dp != null && usuarioWeb.getCpf().equals(cpf) && dp.getSenha().equals(password)
+				&& usuarioWeb.getTipo() == 2) {
 
 			FacesMessage msg = new FacesMessage("Bem vindo ao Sara", usuarioWeb.getNome());
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
@@ -59,7 +64,8 @@ public class LoginBean implements Serializable {
 
 			return navigationBean.redirectToTelaPaginaInicialProfessor();
 
-		} else if (dp != null && usuarioWeb.getCpf().equals(cpf) && dp.getSenha().equals(password) && usuarioWeb.getTipo() == 3) {
+		} else if (dp != null && usuarioWeb.getCpf().equals(cpf) && dp.getSenha().equals(password)
+				&& usuarioWeb.getTipo() == 3) {
 
 			FacesMessage msg = new FacesMessage("Bem vindo ao Sara", usuarioWeb.getNome());
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);

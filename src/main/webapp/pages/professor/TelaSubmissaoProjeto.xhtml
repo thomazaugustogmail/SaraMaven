@@ -35,7 +35,7 @@ h2 {
 		<h2>Abaixo escolha uma de suas opções:</h2>
 	</center>
 	<h:form>
-		<p:growl id="growl" sticky="true" showDetail="true" />
+		<p:growl id="msg" sticky="true" showDetail="true" />
 
 		<p:wizard flowListener="#{projetobean.onFlowProcess}">
 			<p:tab id="personal" title="Dados do Projeto">
@@ -114,8 +114,7 @@ h2 {
 								value="#{projetobean.p.cod_area}" styleClass="outputLabel" />
 
 							<h:outputText value="Subarea do Conhecimento:" />
-							<h:outputText value="#{projetobean.p.cod_area}" required="true"
-								styleClass="outputLabel" />
+							<h:outputText value="#{projetobean.p.cod_area}"	styleClass="outputLabel" />
 
 							<h:outputText value="Especialidade:" />
 							<h:outputText maxlength="50" size="30"
@@ -151,13 +150,12 @@ h2 {
 					</h:panelGrid>
 
 					<p:commandButton
-						action="#{projetobean.cadastrar(projetobean.p)}"
-						value="Enviar" update="growl" process="@this" />
+						action="#{projetobean.cadastrar(projetobean.p)}" value="Enviar" update="msg" process="@this" />
 				</p:panel>
 			</p:tab>
 		</p:wizard>
 		<p>
-			<p:commandButton action="#{navigationBean.redirectToTelaPaginaInicialProfessor()}" value="Voltar" />
+			<p:commandButton action="#{navigationBean.redirectToTelaPaginaInicialProfessor()}" value="Voltar" update="msg" />			
 		</p>
 	</h:form>
 </h:body>

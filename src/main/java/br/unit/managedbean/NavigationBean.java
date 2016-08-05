@@ -96,12 +96,29 @@ public class NavigationBean implements Serializable {
 	public String redirectToTelaPaginaInicialProfessor() {
 		return "/pages/professor/telaPaginaInicialProfessor.xhtml?faces-redirect=true";
 	}
+
 	public String redirectToTelaSubmissaoProjeto() {
 		return "/pages/professor/TelaSubmissaoProjeto.xhtml?faces-redirect=true";
 	}
 
 	public String redirectToTelaPaginaInicialAluno() {
 		return "/pages/aluno/telaPaginaInicialAluno.xhtml?faces-redirect=true";
+	}
+
+	public String redirectToListagemProjetosCoorde() {
+		return "/pages/coordenador/listagemProjetosCoorde.xhtml?faces-redirect=true";
+	}
+
+	public String ToListagemProjetosCoorde() {
+		return "/pages/coordenador/listagemProjetosCoorde.xhtml";
+	}
+
+	public String ToListaDosAvaliadores() {
+		return "/pages/coordenador/ListaDosAvaliadores.xhtml";
+	}
+
+	public String redirectToListaDosAvaliadores() {
+		return "/pages/coordenador/ListaDosAvaliadores.xhtml?faces-redirect=true";
 	}
 
 	/**
@@ -111,5 +128,23 @@ public class NavigationBean implements Serializable {
 	 */
 	public String toCadastroProf() {
 		return "/cadastro_prof.xhtml";
+	}
+
+	/**
+	 * Vai para o cadastro do professor
+	 * 
+	 * @return
+	 */
+	public String ToCadastroAvaliador() {
+		return "/pages/coordenador/cadastro_avaliador.xhtml";
+	}
+
+	/**
+	 * Vai para o cadastro do Avaliador
+	 * 
+	 * @return
+	 */
+	public String redirectToCadastroAvaliador() {
+		return "/pages/coordenador/cadastro_avaliador.xhtml?faces-redirect=true";
 	}
 }

@@ -53,6 +53,10 @@ public class DadosPessoais implements Serializable{
 	private int tipo;
 	@Column(length=100)
 	private String url_comp_res;
+	@Column
+	private String contaBancaria;
+	@Column
+	private String area;
 	
 	public DadosPessoais() {
 	}
@@ -163,6 +167,22 @@ public class DadosPessoais implements Serializable{
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+
+	public String getContaBancaria() {
+		return contaBancaria;
+	}
+
+	public void setContaBancaria(String contaBancaria) {
+		this.contaBancaria = contaBancaria;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
 	}
 
 	@Override

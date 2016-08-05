@@ -8,6 +8,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.primefaces.event.FlowEvent;
 
@@ -26,13 +28,12 @@ public class ProjetoBean implements Serializable {
 	public ProjetoBean() {
 	}
 
-	@ManagedProperty(value = "#{loginBean}")
-	private LoginBean loginBean;
-
 	@ManagedProperty(value = "#{navigationBean}")
 	private NavigationBean navigationBean;
 
-	public String cadastrar(Projeto p) {
+	public String cadastrar(Projeto p, ServletRequest request) {
+		LoginBean loginBean = (LoginBean) ((HttpServletRequest) request).getSession().getAttribute("loginBean");
+		p.setCpf(loginBean.getCpf());
 		p.setAprovado(false);
 		if (p != null && pDAO.save(p)) {
 			FacesMessage msg = new FacesMessage("Sucesso", "Cadastro efetuado com sucesso!");
@@ -116,11 +117,10 @@ public class ProjetoBean implements Serializable {
 		this.skip = skip;
 	}
 
-	public LoginBean getLoginBean() {
-		return loginBean;
-	}
-
-	public void setLoginBean(LoginBean loginBean) {
-		this.loginBean = loginBean;
-	}
+	/*
+	 * public LoginBean getLoginBean() { return loginBean; }
+	 * 
+	 * public void setLoginBean(LoginBean loginBean) { this.loginBean =
+	 * loginBean; }
+	 */
 }

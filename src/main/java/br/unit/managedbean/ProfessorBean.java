@@ -19,11 +19,8 @@ public class ProfessorBean implements Serializable {
 
 	private DadosPessoais dP = new DadosPessoais();
 	private DadosPessoaisDAO dpDAO = new DadosPessoaisDAO();
-	
 
-	
-	public ProfessorBean() {
-	}
+	public ProfessorBean() {}
 
 	@ManagedProperty(value = "#{navigationBean}")
 	private NavigationBean navigationBean;
@@ -65,7 +62,7 @@ public class ProfessorBean implements Serializable {
 	}
 
 	public DadosPessoais getProfessor(String cpf) {
-		// if (cpf != null) {return dpDAO.findByCPF(cpf);}
+		if (cpf != null) {return dpDAO.findByCPF(cpf);}
 		return null;
 	}
 
