@@ -152,13 +152,14 @@ public class NavigationBean implements Serializable {
 	public String ToCadastroAvaliador() {
 		return "/pages/coordenador/cadastro_avaliador.xhtml";
 	}
-
-	/**
-	 * Vai para o cadastro do Avaliador
-	 * 
-	 * @return
-	 */
+	
 	public String redirectToCadastroAvaliador() {
 		return "/pages/coordenador/cadastro_avaliador.xhtml?faces-redirect=true";
+	}
+	public String toListagemAvaliador() {
+		return "/pages/coordenador/ListaDosAvaliadores.xhtml";
+	}
+	public String redirecttoListagemAvaliador() {
+		return "/pages/coordenador/ListaDosAvaliadores.xhtml?faces-redirect=true";
 	}
 }

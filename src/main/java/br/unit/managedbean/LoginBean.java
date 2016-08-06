@@ -79,7 +79,7 @@ public class LoginBean implements Serializable {
 		msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 		FacesContext.getCurrentInstance().addMessage("Erro!", msg);
 		// To to login page
-		return navigationBean.redirectToLogin();
+		return navigationBean.toLogin();
 
 	}
 

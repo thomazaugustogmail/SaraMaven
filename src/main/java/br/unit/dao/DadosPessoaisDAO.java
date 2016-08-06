@@ -1,8 +1,11 @@
 package br.unit.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import br.unit.connectionfactory.ConnectionFactory;
 import br.unit.entity.DadosPessoais;
@@ -47,6 +50,30 @@ public class DadosPessoaisDAO extends GenericDAO<DadosPessoais>
 			e.getMessage();
 		}
 		return dp;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<DadosPessoais> listByTipo(long tipo){
+		em = ConnectionFactory.geEntityManager();
+		
+		List<DadosPessoais> lista = null;
+		try {
+			em.getTransaction().begin();
+			Query resul = em.createQuery("select d from DadosPessoais d ");
+			lista = resul.getResultList();
+			em.getTransaction().commit();
+			List<DadosPessoais> dpLista = new ArrayList<DadosPessoais>();
+			for (DadosPessoais dp : lista) {
+				if (dp.getTipo() == tipo) {
+					dpLista.add(dp);
+				}
+			}
+		
+			return dpLista;
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;		
 	}
 
 	public EntityManager getEm() {

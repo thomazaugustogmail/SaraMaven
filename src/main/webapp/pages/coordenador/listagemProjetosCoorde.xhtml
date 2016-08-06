@@ -35,25 +35,16 @@
         <p align="right"><img src="/Sara/images/unit.png"/></p>
         <center><h2>Listagem dos Projetos</h2></center>
         <div>
-			<p:dataTable var="proj" value="#{projetoController.listaAll()}">
+			<p:dataTable var="proj" value="#{projetobean.listAll()}">
 			    <p:column headerText="Protocolo">
-			        <h:outputText value="#{proj.cod_projeto}" />
+			        <h:outputText value="#{proj.id}" />
 			    </p:column>	 			    
 			    <p:column headerText="Titulo">
 			        <h:outputText value="#{proj.titulo}" />
 			    </p:column>			 
 			    <p:column headerText="Modalidade">
 			        <h:outputText value="#{proj.modalidade}" />
-			    </p:column>			    
-			    <p:column headerText="Url Projeto">
-			        <p:column headerText="Url Projeto">			    	
-			    	<h:form>
-					    <p:commandButton value="Baixar Projeto" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
-					        <p:fileDownload value="#{projetoController.FileDownloadView(projetoController.fileDown)}" />
-					    </p:commandButton>
-					</h:form>
-			    </p:column>
-			    </p:column>			    
+			    </p:column>			    			    
 			    <p:column headerText="Viinculação">
 			        <h:outputText value="#{proj.vinculacao}" />
 			    </p:column>
@@ -66,8 +57,8 @@
 			     <p:column headerText="Bolsista">
 			        <h:outputText value="#{proj.bolsista}" />
 			    </p:column>
-			     <p:column headerText="Status">
-			        <h:outputText value="#{proj.aprovado}" />
+			     <p:column headerText="Status">						     
+			        <h:outputText id="status" value="#{proj.aprovado}" />
 			    </p:column>
 			    <p:column headerText="Código da Área">
 			        <h:outputText value="#{proj.cod_area}" />
@@ -86,7 +77,7 @@
 			</p:dataTable>
 		</div>
 	<p align="right">	
-		<p:button href="/pages/TelaPaginaInicialCoordenador.jsf" value="Voltar" />	
+		<p:button href="#{navigationBean.redirectToTelaCoordenador()}" value="Voltar" />	
 	</p>
     </h:body>
 </html>

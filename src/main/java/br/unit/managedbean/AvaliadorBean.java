@@ -1,6 +1,7 @@
 package br.unit.managedbean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -19,7 +20,7 @@ public class AvaliadorBean implements Serializable {
 
 	private DadosPessoais dP = new DadosPessoais();
 	private DadosPessoaisDAO dpDAO = new DadosPessoaisDAO();
-
+	
 	public AvaliadorBean() {
 	}
 
@@ -51,15 +52,34 @@ public class AvaliadorBean implements Serializable {
 			FacesMessage msg = new FacesMessage("Sucesso", "Avaliador " + t + " removido");
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
-			return navigationBean.redirectToLogin();
+			return navigationBean.toListagemAvaliador();
 		}
 		FacesMessage msg = new FacesMessage("Erro", "Contate o administrador do sistema!");
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 
-		return navigationBean.toLogin();
+		return navigationBean.ToTelaCoordenador();
 	}
 
+	public List<DadosPessoais> listByTipo(int tipo){
+		
+		tipo = 4;
+		
+		List<DadosPessoais> lista = dpDAO.listByTipo(tipo);
+		
+		if (lista != null) {
+			FacesMessage msg = new FacesMessage("Sucesso", "Listagem efetuada com sucesso!");
+			msg.setSeverity(FacesMessage.SEVERITY_INFO);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			return lista;
+		}
+		FacesMessage msg = new FacesMessage("Erro", "Contate o administrador do sistema!");
+		msg.setSeverity(FacesMessage.SEVERITY_INFO);
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+		return lista;
+	}
+	
+	
 	public DadosPessoais getdP() {
 		return dP;
 	}

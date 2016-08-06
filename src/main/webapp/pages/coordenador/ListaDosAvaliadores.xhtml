@@ -28,24 +28,15 @@
     <h:body>
     	<p align="right"><img src="/Sara/images/unit.png"/></p>
         <center><h2>Listagem dos Avaliadores</h2></center>
-        <h:form>
 	        <p:panel>
 		        <div>
-					<p:dataTable  id="tbl" var="ava" value="#{avaliadorController.listasAvalidores()}">
-						<f:facet name="{Exporters}">
-							<h:commandLink >
-								<p:graphicImage name="/images/pdf.png" />
-								<p:dataExporter type="pdf" target="tbl" fileName="avaliadores" />
-							</h:commandLink>
-						</f:facet>
-					
-					    
+					<p:dataTable  id="tbl" var="ava" value="#{AvaliadorBean.listByTipo(AvaliadorBean.dP.tipo)}">
 					    <p:column headerText="Area">
 					        <h:outputText value="#{ava.area}" />
 					    </p:column>
 					 
 					    <p:column headerText="CPF">
-					        <h:outputText value="#{ava.CPF}" />
+					        <h:outputText value="#{ava.cpf}" />
 					    </p:column>
 					 
 					    <p:column headerText="Nome">
@@ -56,17 +47,16 @@
 					        <h:outputText value="#{ava.contaBancaria}" />
 					    </p:column>
 					    <p:column headerText="Remover">
-					        <p:commandButton value="Remover" action="#{avaliadorController.remover(ava.CPF)}" />
-					    </p:column>
-					    <f:facet name="{Exporters}">
-						    <h:commandLink>
-						    	<p:graphicImage name="/images/pdf.png" />
-						    	<p:dataExporter type="pdf" target="tbl" fileName="ava" pageOnly="true" />
-						    </h:commandLink>
-					    </f:facet>
+					    	<h:form>
+					    		<p:growl id="msg" autoUpdate="true" showDetail="true" sticky="true"/>
+						        <p:commandButton value="Remover" action="#{AvaliadorBean.remover(ava.id)}" update="msg"/>
+					    	</h:form>
+					    </p:column>					    
 					</p:dataTable>
 				</div>    
-			</p:panel>
-		</h:form>
+			</p:panel>		
+		<p align="right">	
+			<p:button href="#{navigationBean.redirectToTelaCoordenador()}" value="Voltar" />	
+		</p>
     </h:body>
 </html>
