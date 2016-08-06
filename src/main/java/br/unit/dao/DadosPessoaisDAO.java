@@ -18,30 +18,23 @@ public class DadosPessoaisDAO extends GenericDAO<DadosPessoais> implements Profe
 	@Override
 	public DadosPessoais findByCPF(String cpf) {
 		em = ConnectionFactory.geEntityManager();
-		/*String query = "SELECT d FROM tb_dados_pessoais WHERE d.cpf = " + cpf;*/
-		
+		/*
+		 * String query = "SELECT d FROM tb_dados_pessoais WHERE d.cpf = " +
+		 * cpf;
+		 */
+		DadosPessoais dp = null;
 		try {
 			em.getTransaction().begin();
-			/*String query = "select p from DadosPessoais p where p.cpf = " + cpf;*/
-			/*Query result = em.createNamedQuery(query);*/
-			Query cons = em.createQuery("select p from DadosPessoais p");
-			List<DadosPessoais> dp = cons.getResultList();
-			em.getTransaction().commit();
-			DadosPessoais d = new DadosPessoais();
-			for (DadosPessoais dadosP : dp) {
-				if (dadosP.getCpf().equals(cpf)) {
-					 d = dadosP;
-					 return d;
-				}
-			}
-			
-			/*DadosPessoais dp = em.find(DadosPessoais.class, cpf);*/
-			return null;		
-			
+
+			dp = em.find(DadosPessoais.class, cpf);
+			em.close();
+		
+
+
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		return null;
+		return dp;
 	}
 
 	public EntityManager getEm() {

@@ -48,25 +48,33 @@ h3 {
 	<center>
 		<h2>Listagem dos Projetos</h2>
 	</center>
-		<p:dataTable var="proj" value="#{projetobean.listAll()}">
-			<p:column headerText="Protocolo">
-				<h:outputText value="#{proj.cod_projeto}" />
-			</p:column>
-			<p:column headerText="Titulo">
-				<h:outputText value="#{proj.titulo}" />
-			</p:column>
-			<p:column headerText="Status">
-				<h:outputText value="#{proj.aprovado}" />
-			</p:column>
-			<p:column headerText="Editar">
-				<p:commandButton value="Editar" />
-			</p:column>
-			<p:column headerText="Remover">
-				<p:commandButton value="Remover" />
-			</p:column>
-		</p:dataTable>
+	<p:dataTable var="proj"
+		value="#{projetobean.findByCPF(ProfessorBean.dP.cpf)}">
+		<p:column headerText="Protocolo">
+			<h:outputText value="#{proj.id}" />
+		</p:column>
+		<p:column headerText="Titulo">
+			<h:outputText value="#{proj.titulo}" />
+		</p:column>
+		<p:column headerText="Status">
+			<h:outputText value="#{proj.aprovado}" />
+		</p:column>
+		<p:column headerText="Editar">
+			<p:commandButton value="Editar" />
+		</p:column>
+
+		<p:column headerText="Remover">
+			<h:form>
+				<p:growl id="msg" sticky="true" showDetail="true" />
+				<p:commandButton value="Remover"
+					action="#{ProfessorBean.remover(proj)}" />
+			</h:form>
+		</p:column>
+
+	</p:dataTable>
 	<p align="right">
-		<p:button href="/telaPaginaInicialProfessor.xhtml" value="Voltar" />
+		<p:button href="#{navigationBean.toTelaPaginaInicialProfessor()}"
+			value="Voltar" />
 	</p>
 </h:body>
 </html>

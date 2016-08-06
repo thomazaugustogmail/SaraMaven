@@ -39,9 +39,8 @@ public class LoginBean implements Serializable {
 		// Get every user from our sample database :)
 		DadosPessoais dp = dao.findByCPF(cpf);
 
-		loggedIn = true;
 		if (dp != null) {
-
+			loggedIn = true;
 			usuarioWeb = new UsuarioWeb(dp.getId(), dp.getNome(), dp.getCpf(), dp.getTipo());
 
 		}
@@ -51,7 +50,7 @@ public class LoginBean implements Serializable {
 
 			FacesMessage msg = new FacesMessage("Bem vindo ao Sara", usuarioWeb.getNome());
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
-			FacesContext.getCurrentInstance().addMessage(null, msg);
+			FacesContext.getCurrentInstance().addMessage("Sucesso!", msg);
 
 			return navigationBean.redirectToTelaCoordenador();
 
@@ -60,22 +59,25 @@ public class LoginBean implements Serializable {
 
 			FacesMessage msg = new FacesMessage("Bem vindo ao Sara", usuarioWeb.getNome());
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
-			FacesContext.getCurrentInstance().addMessage(null, msg);
+			FacesContext.getCurrentInstance().addMessage("Sucessor!", msg);
 
-			return navigationBean.redirectToTelaPaginaInicialProfessor();
+			
+			return navigationBean.toTelaPaginaInicialProfessor();
 
 		} else if (dp != null && usuarioWeb.getCpf().equals(cpf) && dp.getSenha().equals(password)
 				&& usuarioWeb.getTipo() == 3) {
 
 			FacesMessage msg = new FacesMessage("Bem vindo ao Sara", usuarioWeb.getNome());
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
-			FacesContext.getCurrentInstance().addMessage(null, msg);
+			FacesContext.getCurrentInstance().addMessage("Sucessor!", msg);
+			
+			
 			return navigationBean.redirectToTelaPaginaInicialAluno();
 		}
 		// Set login ERROR
 		FacesMessage msg = new FacesMessage("Erro!", "Usuario ou senha invalido.");
 		msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+		FacesContext.getCurrentInstance().addMessage("Erro!", msg);
 		// To to login page
 		return navigationBean.redirectToLogin();
 
@@ -91,11 +93,11 @@ public class LoginBean implements Serializable {
 		loggedIn = false;
 		usuarioWeb = null;
 		// Set logout message
-		FacesMessage msg = new FacesMessage("Obrigado por acessar o Sara.", "Volte logo!" + cpf);
+		FacesMessage msg = new FacesMessage("Obrigado por acessar o Sara.", "Volte logo!");
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+		FacesContext.getCurrentInstance().addMessage("Sucesso", msg);
 
-		return navigationBean.redirectToLogin();
+		return navigationBean.toLogin();
 	}
 	// ------------------------------
 	// Getters & Setters

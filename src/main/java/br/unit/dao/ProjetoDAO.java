@@ -16,24 +16,14 @@ public class ProjetoDAO extends GenericDAO<Projeto> implements ProjetoRepository
 
 	public Projeto findById(long id){
 		em = ConnectionFactory.geEntityManager();		
-		try {
-			em.getTransaction().begin();
-			Query cons = em.createQuery("select p from Projeto p");
-			List<Projeto> p = cons.getResultList();
-			em.getTransaction().commit();
-			Projeto proj = new Projeto();
-			for (Projeto pr : p) {
-				if (pr.getId() == id) {
-					 proj = pr;
-					 return proj;
-				}
-			}
-		} catch (Exception e) {
-			e.getMessage();
-		}
-		return null;
+		
+		Projeto p = em.find(Projeto.class, id);
+		em.close();
+		
+		return p;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Projeto> listaTodos(){
 		em = ConnectionFactory.geEntityManager();		
 		try {
@@ -49,6 +39,7 @@ public class ProjetoDAO extends GenericDAO<Projeto> implements ProjetoRepository
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Projeto> projetoByProf(String cpf){
 		em = ConnectionFactory.geEntityManager();
 		

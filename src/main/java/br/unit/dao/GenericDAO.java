@@ -53,6 +53,7 @@ public abstract class GenericDAO<T> implements GenericRepository<T> {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> listAll() {
 		em = ConnectionFactory.geEntityManager();

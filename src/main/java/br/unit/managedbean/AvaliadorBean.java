@@ -73,4 +73,17 @@ public class AvaliadorBean implements Serializable {
 	public void setDpDAO(DadosPessoaisDAO dpDAO) {
 		this.dpDAO = dpDAO;
 	}
+
+	public NavigationBean getNavigationBean() {
+		return navigationBean;
+	}
+
+	public void setNavigationBean(NavigationBean navigationBean) {
+		this.navigationBean = navigationBean;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 }

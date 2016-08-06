@@ -28,19 +28,19 @@
 		<param-value>client</param-value>
 	</context-param>
 	<!-- Login filter -->
-	<filter>
+	<!-- <filter>
 		<filter-name>LoginFilter</filter-name>
 		<filter-class>br.unit.filter.LoginFilter</filter-class>
-	</filter>
+	</filter> -->
 	<!-- Set the login filter to secure all the pages in the /pages/* path of 
 		the application Filtra todas as requisições de paginas http que estejão dentro 
 		da pasta /pages/* -->
-	<filter-mapping>
+	<!-- <filter-mapping>
 		<filter-name>LoginFilter</filter-name>
 		<url-pattern>/pages/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 	<!-- Tempo de duração da sessão do usuário -->
-	<session-config>
+	<!-- <session-config>
 		<session-timeout>30</session-timeout>
-	</session-config>
+	</session-config> -->
 </web-app>

@@ -35,11 +35,10 @@ h2 {
 		<h2>Abaixo escolha uma de suas opções:</h2>
 	</center>
 	<h:form>
-		<p:growl id="msg" sticky="true" showDetail="true" />
-
+		<p:growl id="msg" showDetail="true" sticky="true" />		
 		<p:wizard flowListener="#{projetobean.onFlowProcess}">
 			<p:tab id="personal" title="Dados do Projeto">
-				<p:panel header="Dados do Projeto">
+				<p:panel>
 					<p:messages />
 					<h:panelGrid columns="2" columnClasses="label, value">
 						<h:outputText value="Título:" />
@@ -66,14 +65,14 @@ h2 {
 			</p:tab>
 
 			<p:tab title="Dados de Conteúdo">
-				<p:panel header="Dados de Conteúdo">
+				<p:panel>
 					<h:panelGrid>
 						<h:outputLabel value="Palavras-Chave:" />
 						<p:inputText maxlength="50" size="30"
 							value="#{projetobean.p.palavrasChave}" />
 						<h:outputLabel
 							value="Resumo do projeto (mínimo de 50 e máximo de 300 caracteres)" />
-						<p:inputTextarea cols="60" rows="10"
+						<p:inputTextarea cols="50" rows="6"
 							value="#{projetobean.p.resumoProjeto}">
 							<f:validateLength minimum="50" maximum="300" />
 						</p:inputTextarea>
@@ -84,9 +83,9 @@ h2 {
 			</p:tab>
 
 			<p:tab title="Cronograma do Projeto">
-				<p:panel header="Cronograma do Projeto">
-					<h:panelGrid columns="1">
-						<h:outputLabel value="Calendário de Iniciação Científica/Projeto:" />
+				<p:panel>
+					<h:outputLabel value="Calendário de Iniciação Científica/Projeto:" />
+					<h:panelGrid columns="1" >
 						<h:outputLabel id="perrioIni" value="Período Inicial" />
 						<p:calendar id="perIni" value="#{projetobean.p.per_ini}"
 							locale="de" navigator="true" pattern="dd/MM/yyyy" mask="true" />
@@ -94,7 +93,7 @@ h2 {
 						<p:calendar id="perFim" value="#{projetobean.p.per_fim}"
 							locale="de" navigator="true" pattern="dd/MM/yyyy" mask="true" />
 						<h:outputLabel value="Tarefa" />
-						<p:inputTextarea cols="60" rows="10" id="tarefa" />
+						<p:inputTextarea cols="50" rows="6" id="tarefa" />
 					</h:panelGrid>
 
 				</p:panel>
@@ -106,7 +105,7 @@ h2 {
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<h:outputText value="Título" />
 							<h:outputText maxlength="50" size="30"
-								value="#{projetobean.p.titulo}" required="true" label="Titulo"
+								value="#{projetobean.p.titulo}"  label="Titulo"
 								styleClass="outputLabel" />
 
 							<h:outputText value="Área:" />
@@ -147,16 +146,12 @@ h2 {
 							<h:outputText />
 							<h:outputText />
 						</h:panelGrid>
-					</h:panelGrid>
-
-					<p:commandButton
-						action="#{projetobean.cadastrar(projetobean.p)}" value="Enviar" update="msg" process="@this" />
+					</h:panelGrid>				
 				</p:panel>
 			</p:tab>
 		</p:wizard>
-		<p>
-			<p:commandButton action="#{navigationBean.redirectToTelaPaginaInicialProfessor()}" value="Voltar" update="msg" />			
-		</p>
+	<p:commandButton action="#{projetobean.cadastrar(projetobean.p , loginBean)}" value="Enviar" update="msg" process="@this" />
+	<p:button href="#{navigationBean.redirectToTelaPaginaInicialProfessor()}" value="Voltar" />		
 	</h:form>
 </h:body>
 </html>

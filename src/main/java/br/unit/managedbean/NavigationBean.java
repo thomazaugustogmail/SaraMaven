@@ -92,6 +92,13 @@ public class NavigationBean implements Serializable {
 	public String redirectToCadastroProf() {
 		return "/cadastro_prof.xhtml?faces-redirect=true";
 	}
+	public String toCadastroProf() {
+		return "/cadastro_prof.xhtml";
+	}
+
+	public String toTelaPaginaInicialProfessor() {
+		return "/pages/professor/telaPaginaInicialProfessor.xhtml";
+	}
 
 	public String redirectToTelaPaginaInicialProfessor() {
 		return "/pages/professor/telaPaginaInicialProfessor.xhtml?faces-redirect=true";
@@ -101,8 +108,16 @@ public class NavigationBean implements Serializable {
 		return "/pages/professor/TelaSubmissaoProjeto.xhtml?faces-redirect=true";
 	}
 
+	public String ToTelaSubmissaoProjeto() {
+		return "/pages/professor/TelaSubmissaoProjeto.xhtml";
+	}
+
 	public String redirectToTelaPaginaInicialAluno() {
 		return "/pages/aluno/telaPaginaInicialAluno.xhtml?faces-redirect=true";
+	}
+	
+	public String toTelaPaginaInicialAluno() {
+		return "/pages/aluno/telaPaginaInicialAluno.xhtml";
 	}
 
 	public String redirectToListagemProjetosCoorde() {
@@ -113,21 +128,20 @@ public class NavigationBean implements Serializable {
 		return "/pages/coordenador/listagemProjetosCoorde.xhtml";
 	}
 
+	public String redirectToListagemProjetosProfessor() {
+		return "/pages/professor/listagemProjetosProfessor.xhtml?faces-redirect=true";
+	}
+
+	public String ToListagemProjetosProfessor() {
+		return "/pages/professor/listagemProjetosProfessor.xhtml";
+	}
+
 	public String ToListaDosAvaliadores() {
 		return "/pages/coordenador/ListaDosAvaliadores.xhtml";
 	}
 
 	public String redirectToListaDosAvaliadores() {
 		return "/pages/coordenador/ListaDosAvaliadores.xhtml?faces-redirect=true";
-	}
-
-	/**
-	 * Vai para o cadastro do professor
-	 * 
-	 * @return
-	 */
-	public String toCadastroProf() {
-		return "/cadastro_prof.xhtml";
 	}
 
 	/**

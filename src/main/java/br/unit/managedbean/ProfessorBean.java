@@ -1,18 +1,19 @@
 package br.unit.managedbean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.unit.dao.DadosPessoaisDAO;
 import br.unit.entity.DadosPessoais;
 
 @ManagedBean(name = "ProfessorBean")
-@RequestScoped
+@SessionScoped
 public class ProfessorBean implements Serializable {
 
 	private static final long serialVersionUID = -7470206337508559708L;
@@ -20,7 +21,8 @@ public class ProfessorBean implements Serializable {
 	private DadosPessoais dP = new DadosPessoais();
 	private DadosPessoaisDAO dpDAO = new DadosPessoaisDAO();
 
-	public ProfessorBean() {}
+	public ProfessorBean() {
+	}
 
 	@ManagedProperty(value = "#{navigationBean}")
 	private NavigationBean navigationBean;
@@ -41,30 +43,33 @@ public class ProfessorBean implements Serializable {
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 
-			return navigationBean.redirectToLogin();
+			return navigationBean.toLogin();
 		}
 		FacesMessage msg = new FacesMessage("Erro", "Contate o administrador do sistema!");
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 
 		return navigationBean.toLogin();
-	}	
-	
+	}
 
 	public String remover(DadosPessoais dp) {
-		/*
-		 * if (dp != null && dpDAO.remover(dP)) { FacesContext context =
-		 * FacesContext.getCurrentInstance(); context.addMessage(null, new
-		 * FacesMessage("Sucesso", "Remoção efetuada com sucesso!")); return
-		 * navigationBean.redirectToLogin(); }
-		 */
+
+		if (dp != null && dpDAO.remover(dP)) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage("Sucesso", "Remoção efetuada com sucesso!"));
+			return navigationBean.redirectToLogin();
+		}
+
 		return navigationBean.toLogin();
 	}
 
 	public DadosPessoais getProfessor(String cpf) {
-		if (cpf != null) {return dpDAO.findByCPF(cpf);}
+		if (cpf != null) {
+			return dpDAO.findByCPF(cpf);
+		}
 		return null;
 	}
+	
 
 	public DadosPessoaisDAO getDpDAO() {
 		return dpDAO;
@@ -88,5 +93,5 @@ public class ProfessorBean implements Serializable {
 
 	public void setNavigationBean(NavigationBean navigationBean) {
 		this.navigationBean = navigationBean;
-	}	
+	}
 }
