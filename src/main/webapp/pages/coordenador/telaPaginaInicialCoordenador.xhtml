@@ -35,7 +35,7 @@ h3 {
 
 <h:body>
 	<p align="right">
-		<img src="/SaraMaven/images/unit.png" />
+		<img src="/Sara/images/unit.png" />
 	</p>
 	<center>
 		<h1>Bem Vindo #{loginBean.usuarioWeb.nome}</h1>
@@ -62,8 +62,7 @@ h3 {
 				<p:button disabled="true" value="Liberar Declarações" />
 				<p:button disabled="true" value="Liberar Certificados" />
 				<p:button disabled="true" value="Liberar o Curriculum para o Comitê Barema" />
-				<p:commandButton value="Sair" action="#{loginBean.doLogout()}"
-					update="msg" />
+				<p:commandButton value="Sair" action="#{loginBean.doLogout()}"	update="msg" />
 			</h:panelGrid>
 		</h:form>
 	</center>

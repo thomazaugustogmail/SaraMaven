@@ -52,7 +52,7 @@ public class LoginBean implements Serializable {
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
 			FacesContext.getCurrentInstance().addMessage("Sucesso!", msg);
 
-			return navigationBean.redirectToTelaCoordenador();
+			return navigationBean.ToTelaCoordenador();
 
 		} else if (dp != null && usuarioWeb.getCpf().equals(cpf) && dp.getSenha().equals(password)
 				&& usuarioWeb.getTipo() == 2) {
@@ -72,7 +72,7 @@ public class LoginBean implements Serializable {
 			FacesContext.getCurrentInstance().addMessage("Sucessor!", msg);
 			
 			
-			return navigationBean.redirectToTelaPaginaInicialAluno();
+			return navigationBean.toTelaPaginaInicialAluno();
 		}
 		// Set login ERROR
 		FacesMessage msg = new FacesMessage("Erro!", "Usuario ou senha invalido.");

@@ -49,7 +49,7 @@
 	            <p:button disabled="true" value="Cadastrar Calendário dos Projetos" href="#" />
 	            <p:button disabled="true" value="Calendário Iniciação Científica" href="#" />
 	            <p:button disabled="true" value="Emitir Certificado" href="#" />
-	            <p:button value="Sair" href="#{loginBean.doLogout()}" />	            
+	            <p:commandButton value="Sair" action="#{loginBean.doLogout()}" update="msg"/>	            
             </h:panelGrid>
          </center>
      </h:form>

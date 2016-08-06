@@ -34,24 +34,26 @@ public class AvaliadorBean implements Serializable {
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 
-			return navigationBean.redirectToTelaCoordenador();
+			return navigationBean.ToTelaCoordenador();
 		}
-		FacesMessage msg = new FacesMessage("Erro", "Contate o administrador do sistema!");
+		FacesMessage msg = new FacesMessage("Erro ao casdatrar o Avaliador", "Contate o administrador do sistema!");
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 
-		return navigationBean.toLogin();
+		return navigationBean.ToTelaCoordenador();
 	}
 
-	public String remover(DadosPessoais dp) {
+	public String remover(long id) {
 
+		DadosPessoais dp = dpDAO.findById(id);
+		String t = dp.getNome();
 		if (dp != null && dpDAO.remover(dP)) {
-			FacesMessage msg = new FacesMessage("Erro", "Contate o administrador do sistema!");
+			FacesMessage msg = new FacesMessage("Sucesso", "Avaliador " + t + " removido");
 			msg.setSeverity(FacesMessage.SEVERITY_INFO);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 			return navigationBean.redirectToLogin();
 		}
-		FacesMessage msg = new FacesMessage("Sucesso", "Cadastro efetuado com sucesso!");
+		FacesMessage msg = new FacesMessage("Erro", "Contate o administrador do sistema!");
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 
@@ -85,5 +87,5 @@ public class AvaliadorBean implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 }

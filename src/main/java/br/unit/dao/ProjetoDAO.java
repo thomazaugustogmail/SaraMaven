@@ -1,5 +1,6 @@
 package br.unit.dao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,10 @@ import br.unit.connectionfactory.ConnectionFactory;
 import br.unit.entity.Projeto;
 import br.unit.repository.ProjetoRepository;
 
-public class ProjetoDAO extends GenericDAO<Projeto> implements ProjetoRepository<Projeto> {
+public class ProjetoDAO extends GenericDAO<Projeto> implements ProjetoRepository<Projeto> , Serializable {
 
+	
+	private static final long serialVersionUID = 4610597374520037512L;
 	private EntityManager em;
 
 	public Projeto findById(long id){
